@@ -5,6 +5,7 @@ module.exports = {
     extend: {
       colors: {
         primary: '#ffea29',
+        primaryWashed: 'rgba(255,234,41,0.3)',
         secondary: '#1f1f1f',
 
         darkest: ' #0C0404',
@@ -22,6 +23,7 @@ module.exports = {
 
         borderColor: '#343434',
         crimson: '#dc143c',
+        crimsonWashed: 'rgba(220, 20, 60, 0.4)',
     
         greenCard: '#005727',
         blueCard: '#014b9a',
@@ -31,6 +33,16 @@ module.exports = {
       fontFamily: {
         sans: ['Poppins', 'sans-serif'],
       },
+      gridTemplateColumns: {
+        'fluid-10': 'repeat(auto-fit, minmax(10rem, 1fr))',
+        'fluid-15': 'repeat(auto-fit, minmax(15rem, 1fr))',
+        'fluid-20': 'repeat(auto-fit, minmax(20rem, 1fr))',
+        'fluid-25': 'repeat(auto-fit, minmax(25rem, 1fr))',
+        'fluid-30': 'repeat(auto-fit, minmax(30rem, 1fr))',
+      },
+      transitionDuration: {
+        '400': '0.4s',
+      }
     },
   },
   plugins: [],

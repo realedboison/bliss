@@ -3,6 +3,9 @@
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "build-css":"tailwindcss -i styles.css -o ./build/css/styles.css --watch"
+    "build-css": "tailwindcss -i styles.css -o ./build/css/styles.css --watch"
+  },
+  "dependencies": {
+    "@fullhuman/postcss-purgecss": "^5.0.0"
   }
 }
