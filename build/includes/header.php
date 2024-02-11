@@ -8,10 +8,19 @@
   <title>Document</title>
 </head>
 <body>
-<div class="container outline-1 text-6xl bg-blue-500">Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores ipsa ad omnis laborum, deleniti, voluptate, minus corporis iure maiores odio cupiditate non! Reiciendis alias quo laborum veritatis harum placeat distinctio esse voluptates recusandae maxime assumenda, aut rerum cum quam nihil dolore officia, beatae, asperiores ducimus dolores quasi iusto eius ratione. Iure numquam dolores minus rerum recusandae natus, sed incidunt consectetur possimus? Numquam, totam, dignissimos nesciunt non rerum veritatis natus earum ducimus, quod quis provident saepe cumque veniam corporis esse nobis ad. Dolorem libero beatae recusandae tempore tenetur, consectetur nulla saepe iste porro sapiente sint officiis architecto quam dolor natus ab!</div>
-
-  <div class="container h-[80vh] ">
-    <img src="../img/hero-blurred.png" alt="">
-  </div>
+    <?php include '../includes/navbar.php' ?>
+      <div class="w-full relative">
+        <img src="../img/hero-blurred.png" class="xl:h-[65vh] h-[60vh] mt-[92px] xl:mt-[125px] w-full object-cover brightness-[0.23] rounded-bl-3xl rounded-br-3xl overflow-hidden" alt="hero-image">
+   
+          <div class="absolute w-full inset-0 flex flex-col items-center justify-center">
+            <h3 class="xl:text-6xl text-5xl mb-4 font-bold text-lightest"> 
+              <span class="text-transparent bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text">Bliss Smoothies</span>   
+            </h3>
+            <p class="text-xl mb-6 text-lightest">blend the bliss, sip the goodness</p>
+            <button class="btn-lg">Order Now</button> 
+          </div>
+      </div>
 </body>
+      
+      
 </html>

@@ -16,7 +16,7 @@
     @apply text-sm transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 font-medium hover:outline-primary text-darkest px-8 py-2 rounded-3xl cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
   }
   .btn-lg {
-    @apply text-lg transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 font-medium hover:outline-primary text-darkest px-12 py-12 rounded-3xl cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
+    @apply text-xl transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 font-medium hover:outline-primary text-darkest px-12 py-3 rounded-full cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
   }
 }
  

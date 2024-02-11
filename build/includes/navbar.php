@@ -6,7 +6,7 @@
   <title>Navbar</title>
 </head>
 
-  <nav class="fixed w-full top-0 left-0 bg-darkest text-white xl:px-10  xl:py-8 p-5 text-2xl">
+  <nav class="fixed w-full top-0 left-0 bg-darkest text-white xl:px-10  xl:py-8 p-5 text-2xl z-50">
     <div class="mx-auto container-xxl relative">
       <div class="flex justify-between items-center">
         <div>
@@ -62,9 +62,9 @@
 
  <!-- MODAL START -->
   <!-- <body>  -->
-    <div id="modal" class="h-screen w-full bg-darkest bg-opacity-60 backdrop-blur-sm fixed top-0 left-0 flex justify-center items-center px-5 hidden outline outline-[1px] outline-borderColor">
+    <div id="modal" class="h-screen w-full bg-darkest bg-opacity-60 backdrop-blur-sm fixed top-0 left-0 flex justify-center items-center px-5 hidden z-50">
         <!-- MODAL -->
-        <div class="bg-black rounded-xl text-white xl:w-2/3 w-full p-10 overflow-y-auto max-h-full">
+        <div class="bg-darkest rounded-xl text-white xl:w-2/3 w-full p-10 overflow-y-auto max-h-full outline outline-[1px] outline-secondary">
             <div class="flex justify-between items-center">
                 <div>
                   <a href="../includes/navbar.php">
@@ -92,10 +92,10 @@
                     </form>
                   </div>
                   <div class="mt-10 border-t border-t-borderColor">  
-                      <div class="my-4 gap-y-6 justify-center items- mx-auto grid grid-cols-fluid-10">
+                      <div class="my-4 gap-y-6 justify-center mx-auto grid grid-cols-fluid-10">
                         <div>
                           <h4 class="text-white pb-1 font-semibold">Product </h4>
-                          <img src="../img/mango.jpg" class="size-28 rounded-2xl" alt="product image">
+                          <img src="../img/mango.jpg" class="size-28 rounded-xl" alt="product image">
                         </div>
 
                         <div>
@@ -134,20 +134,20 @@
 <!-- MODAL END -->
 
 <!-- PROFILE STARTS -->
-    <div id="profile-wrapper-sm" class="w-50 h-54 bg-darkest rounded-xl absolute top-[137px] right-[10px] outline outline-[1px] outline-borderColor p-7 hidden">
+    <div id="profile-wrapper-sm" class="w-50 h-54 bg-darkest rounded-xl absolute top-[137px] right-[10px] outline outline-[1px] outline-secondary p-7 hidden z-50">
       <div class="flex flex-col items-center justify-center gap-4 ">
         <img src="../img/profile-picture.jpg" alt="" class="size-24 rounded-full">
         <div class="text-center w-full text-white font-semibold leading-6">Kweku Ahinful</div>
-        <div class="flex gap-5">
-          <div class="btn-sm">Profile</div>
-          <div class="btn-sm">Logout</div>
-        </div>
+          <div class="flex gap-5">
+            <div class="btn-sm">Profile</div>
+            <div class="btn-sm">Logout</div>
+          </div>
       </div>
     </div>
 <!-- PROFILE END -->
 
 <!-- HAMBURGER MENU START -->
-      <div id="menu" class="w-50 h-54 bg-darkest rounded-xl absolute xl:top-[137px] xl:right-[10px] top-[103px] right-[5px]  outline outline-[1px] outline-borderColor p-7 hidden">
+      <div id="menu" class="w-50 h-54 bg-darkest rounded-xl absolute xl:top-[137px] xl:right-[10px] top-[103px] right-[5px] outline outline-[1px] outline-secondary p-7 hidden z-50">
       <div class="flex flex-col items-center justify-center gap-4 ">
         <a href="#" class="underline focus:text-darkGray hover:text-midGray text-center w-full text-white font-semibold">Home</a>
         <a href="#" class="underline focus:text-darkGray hover:text-midGray text-center w-full text-white font-semibold">Products</a>
@@ -160,6 +160,7 @@
       </div>
     </div> 
 <!-- HAMBURGER MENU END -->
+
 
 <script src="../js/script.js"></script>
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
