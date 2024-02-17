@@ -9,7 +9,7 @@ const closeModal = document.querySelectorAll('#close-modal');
 const showModal = document.querySelector('#show-modal');
 
 
-// EVENT LISTENERS HERE
+// EVENT LISTENERS 
 menuBtn.addEventListener('click', (event) => {
   event.stopPropagation();
   navBar.classList.toggle('hidden')

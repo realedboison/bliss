@@ -9,13 +9,13 @@
   <nav class="fixed w-full top-0 left-0 bg-darkest text-white xl:px-10  xl:py-8 p-5 text-2xl z-50">
     <div class="mx-auto container-xxl relative">
       <div class="flex justify-between items-center">
-        <div>
+        <a href="../pages/main.php">
           <img src="../img/bliss-logo.png" alt="brand logo" class="xl:size-16 size-14">
-        </div>
+        </a>
         <div>
           <ul class="xl:flex justify-center items-center gap-4 hidden text-white">
-            <li><a href="#" class="focus:text-darkGray hover:text-midGray font-semibold underline">Home</a></li>
-            <li><a href="#" class="focus:text-darkGray hover:text-midGray font-semibold underline">Products</a></li>  
+            <li><a href="../pages/main.php" class="focus:text-darkGray hover:text-midGray font-semibold underline">Home</a></li>
+            <li><a href="../pages/products.php" class="focus:text-darkGray hover:text-midGray font-semibold underline">Products</a></li>  
           </ul>
         </div>
         
@@ -23,8 +23,9 @@
         <div class="flex">
          <div class="flex items-center gap-2  text-lightGray ">
          <div class="xl:flex hidden gap-6 items-center justify-center">
-          <button class="btn-sm">Login</button>
-          <button class="btn-sm">Register</button>
+          <!-- ../pages/products.php -->
+          <button class="btn-sm"><a href="../pages/login.php">Login</a> </button>
+          <button class="btn-sm"><a href="../pages/register.php">Register</a></button>
          </div>
          <!-- SEARCH -->
           <div class="xl:flex focus:text-darkGray hover:text-midGray ml-10 cursor-pointer"  id="show-modal">

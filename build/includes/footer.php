@@ -7,13 +7,12 @@
   <link rel="stylesheet" href="../css/styles.com">
   <title>Document</title>
 </head>
-<body>
-  <div class="w-full bg-darkest rounded-tl-3xl rounded-tr-3xl">
+<!-- <body > -->
+  <div class="w-full bg-darkest rounded-tl-3xl rounded-tr-3xl relative z-50">
     <div class="p-10 grid grid-cols-fluid-15 gap-6">
-      <div class="">
+      <a href="../pages/main.php">
         <img src="../img/bliss-logo.png" class="size-24" alt="brand logo">
-        
-      </div>
+      </a>   
       <div class="">
         <h4 class="text-2xl font-semibold text-white mb-[10px]">Business</h4>
         <p class="text-midGray">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Minus molestiae impedit ad consectetur soluta optio. Ad fugiat ea inventore facere, repellendus odit non eaque optio sed laudantium eligendi, quae laborum!</p>
@@ -27,10 +26,10 @@
         </div>
       </div>
       <div class="flex flex-col underline text-2xl font-semibold ">
-        <a href="#" class="focus:text-darkGray hover:text-midGray w-full text-white font-semibold mb-[10px]">Home</a>
-        <a href="#" class="focus:text-darkGray hover:text-midGray w-full text-white font-semibold">Products</a>
+        <a href="../pages/main.php" class="focus:text-darkGray hover:text-midGray w-full text-white font-semibold mb-[10px]">Home</a>
+        <a href="../pages/products.php" class="focus:text-darkGray hover:text-midGray w-full text-white font-semibold">Products</a>
       </div>
     </div>
   </div>
-</body>
+<!-- </body> -->
 </html>

@@ -3,7 +3,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../css/styles.css">
-  <title>MainPage</title>
+  <title>Homepage</title>
 </head>
 <body>
 <?php include '../includes/header.php' ?>
@@ -16,7 +16,7 @@
       </svg>
     </div>
     <h4 class="text-2xl font-semibold mb-[10px] underline hover:text-crimson transition duration-400 cursor-pointer">Wellness</h4>
-    <p class="">
+    <p class="text-secondary">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque inventore in autem explicabo, voluptas consectetur
     </p>
   </div>
@@ -27,7 +27,7 @@
       </svg>
     </div>
     <h4 class="text-2xl font-semibold mb-[10px] underline hover:text-crimson transition duration-400 cursor-pointer">Blissmix</h4>
-    <p class="">
+    <p class="text-secondary">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque inventore in autem explicabo, voluptas consectetur
     </p>
   </div>
@@ -38,7 +38,7 @@
       </svg>
     </div>
     <h4 class="text-2xl font-semibold mb-[10px] underline hover:text-crimson transition duration-400 cursor-pointer">Custom Bliss</h4>
-    <p class="">
+    <p class="text-secondary">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque inventore in autem explicabo, voluptas consectetur
     </p>
   </div>
@@ -49,7 +49,7 @@
     </svg>
     </div>
     <h4 class="text-2xl font-semibold mb-[10px] underline hover:text-crimson transition duration-400 cursor-pointer">Kidibliss</h4>
-    <p class="">
+    <p class="text-secondary">
     Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque inventore in autem explicabo, voluptas consectetur
     </p>
   </div>
@@ -60,28 +60,23 @@
 <div class="container mx-auto grid grid-cols-fluid-25 gap-6 my-14">
     <div class="flex gap-6 bg-blueWashed p-6 rounded-xl ">
       <div class="w-1/4">
-        <!-- xl:h-[150px] xl:w-[250px] lg:h-[150px] lg:w-[250px] h-[150px] w-[500px]-->
-        <!-- h-[150px] w-[250px] object-cover -->
       <img src="../img/new.png" alt="whats new" class="rounded-xl [150px] w-[400px]">
       </div>
 
       <div class="w-2/3 flex flex-col justify-between pt-1">
         <h4 class="text-2xl font-semibold mb-[10px] underline cursor-pointer">What's New ?</h4>
-        <p>Lorem ipsum dolor sit. Amet consectetur adipisicing elit. Culpa Iste iusto adipisci, impedit tempora, odio vero unde.</p>
+        <p class="text-secondary">Lorem ipsum dolor sit. Amet consectetur adipisicing elit. Culpa Iste iusto adipisci, impedit tempora, odio vero unde.</p>
       </div>
     </div>
 
     <div class="flex gap-6 bg-blueWashed p-6 rounded-xl">
       <div class="w-1/4">
-        <!-- xl:h-[150px] xl:w-[250px] lg:h-[150px]  lg:w-[250px] h-[150px] w-[500px]-->
-        <!-- h-[150px] w-[250px] object-cover -->
-        <!-- <img src="img/" alt="Hero Image" class="giftcard"> -->
       <img src="../img/giftcard-1.jpg" alt="whats new" class="rounded-xl [150px] w-[400px]">
       </div>
 
       <div class="w-2/3 flex flex-col justify-between pt-1">
         <h4 class="text-2xl font-semibold mb-[10px] underline cursor-pointer">Buy Gift Cards</h4>
-        <p>Lorem ipsum dolor sit. Amet consectetur adipisicing elit. Culpa Iste iusto adipisci, impedit tempora, odio vero unde.</p>
+        <p class="text-secondary">Lorem ipsum dolor sit. Amet consectetur adipisicing elit. Culpa Iste iusto adipisci, impedit tempora, odio vero unde.</p>
       </div>
     </div>
 </div>
@@ -91,15 +86,15 @@
 <div class="container mx-auto grid grid-cols-fluid-25 gap-6 my-14">
   <div class="bg-pinkWashed rounded-xl p-6">
     <h4 class="text-4xl font-semibold mb-[10px]">6,377</h4>
-    <p class="text-xl">Smoothies Served Today</p>
+    <p class="text-xl text-secondary">Smoothies Served Today</p>
   </div>
   <div class="bg-pinkWashed rounded-xl p-6">
     <h4 class="text-4xl font-semibold mb-[10px]">261,446</h4>
-    <p class="text-xl">Smoothies Served Per Month</p>
+    <p class="text-xl text-secondary">Smoothies Served Per Month</p>
   </div>
   <div class="bg-pinkWashed rounded-xl p-6">
     <h4 class="text-4xl font-semibold mb-[10px]">3,314,168</h4>
-    <p class="text-xl">Smoothies Served Per Year</p>
+    <p class="text-xl text-secondary">Smoothies Served Per Year</p>
   </div>
 </div>
 <!-- THREE CARD SIDE END -->

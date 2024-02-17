@@ -7,16 +7,19 @@
 @layer components {
 
   .btn {
-    @apply transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 hover:outline-primary font-medium text-darkest mt-6 px-8 py-2 rounded-3xl cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
+    @apply px-8 py-2 mt-6 font-medium transition cursor-pointer duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 hover:outline-primary text-darkest rounded-3xl outline outline-2 outline-offset-4 outline-primaryWashed;
+  }
+  .btn-light {
+    @apply px-8 py-2 mt-6 font-medium transition cursor-pointer duration-400 bg-primary hover:bg-darkest hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 hover:outline-darkest text-darkest rounded-3xl outline outline-2 outline-offset-4 outline-primary;
   }
   .btn-sm {
-    @apply text-sm transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 font-medium hover:outline-primary text-darkest px-6 py-1 rounded-3xl cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
+    @apply px-6 py-1 text-sm font-medium transition cursor-pointer duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 hover:outline-primary text-darkest rounded-3xl outline outline-2 outline-offset-4 outline-primaryWashed;
   }
   .btn-md {
-    @apply text-sm transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 font-medium hover:outline-primary text-darkest px-8 py-2 rounded-3xl cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
+    @apply px-8 py-2 text-sm font-medium transition cursor-pointer duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 hover:outline-primary text-darkest rounded-3xl outline outline-2 outline-offset-4 outline-primaryWashed;
   }
   .btn-lg {
-    @apply text-xl transition duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 font-medium hover:outline-primary text-darkest px-12 py-3 rounded-full cursor-pointer outline outline-2 outline-offset-4 outline-primaryWashed;
+    @apply px-12 py-3 text-xl font-medium transition rounded-full cursor-pointer duration-400 bg-primary hover:bg-primaryWashed hover:text-primary hover:outline-2 hover:outline hover:outline-offset-4 hover:outline-primary text-darkest outline outline-2 outline-offset-4 outline-primaryWashed;
   }
 }
  
