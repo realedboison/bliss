@@ -8,7 +8,7 @@
   <title>Document</title>
 </head>
 <!-- <body > -->
-  <div class="w-full bg-darkest rounded-tl-3xl rounded-tr-3xl relative z-50">
+  <div class="w-full bg-darkest rounded-tl-3xl rounded-tr-3xl relative z-40">
     <div class="p-10 grid grid-cols-fluid-15 gap-6">
       <a href="../pages/main.php">
         <img src="../img/bliss-logo.png" class="size-24" alt="brand logo">

@@ -30,11 +30,11 @@
             <h4 class="pb-1 font-semibold">Price</h4>
             <p class="text-darkestGray">550.00</p>
           </div>
-          <div class="flex flex-col ">
+          <div class="flex flex-col">
             <h4 class="pb-1 font-semibold ">Qty</h4>
            <div class="flex items-center justify-start gap-2 ">
             <div class="flex items-center justify-center w-6 h-6 text-xl text-white rounded-full cursor-pointer bg-darkGray">+</div>
-            <div class="flex items-center justify-center updated-value "><div>40</div></div>
+            <div class="flex items-center justify-center updated-value "><div>400</div></div>
             <div class="flex items-center justify-center w-6 h-6 text-xl text-white rounded-full cursor-pointer bg-darkGray">-</div>
            </div>
           </div>
