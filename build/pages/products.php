@@ -13,7 +13,7 @@
 <div class="container mx-auto  pt-[200px] pb-[70px]">
 
 <div>
-<h4 class="mb-4 text-3xl font-semibold text-greenCard">
+<h4 id="wellness" class="mb-4 text-3xl font-semibold text-greenCard">
   Wellness
 </h4>
 <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -78,7 +78,7 @@
 </div>
 
 <div>
-<h4 class="mt-16 mb-4 text-3xl font-semibold text-blueCard">
+<h4 id="blissmix" class="mt-16 mb-4 text-3xl font-semibold text-blueCard">
   Blissmix
 </h4>
 <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -143,7 +143,7 @@
 </div>
 
 <div>
-<h4 class="mt-16 mb-4 text-3xl font-semibold text-redCard">
+<h4 id="custombliss" class="mt-16 mb-4 text-3xl font-semibold text-redCard">
 Custom Bliss
 </h4>
 <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">
@@ -208,7 +208,7 @@ Custom Bliss
 </div>
 
 <div>
-<h4 class="mt-16 mb-4 text-3xl font-semibold text-purpleCard">
+<h4 id="kidibliss" class="mt-16 mb-4 text-3xl font-semibold text-purpleCard">
 Kidibliss
 </h4>
 <div class="grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-4">

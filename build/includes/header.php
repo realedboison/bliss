@@ -17,10 +17,9 @@
               <span class="text-transparent bg-gradient-to-r from-red-500 to-yellow-500 bg-clip-text">Bliss Smoothies</span>   
             </h3>
             <p class="text-xl mb-6 text-lightest">blend the bliss, sip the goodness</p>
-            <button class="btn-lg">Order Now</button> 
+            <button class="btn-lg"> <a href="../pages/products.php">Order Now</a> </button> 
+            <!-- href="../pages/terms.php"  -->
           </div>
       </div>
 </body>
-      
-      
 </html>

@@ -50,7 +50,7 @@
             case 'account': 
               echo '<div class="">
                 <form action="">
-                <div class="mx-auto lg:w-6/12 w-11/12">
+                <div class="mx-auto lg:w-[70%] w-11/12">
                 
                 <div class="mb-6">
                   <label for="" class="pb-4"><span class="text-darkestGray">First name</span> <sup class="text-crimson text-lg ">*</sup></label>
