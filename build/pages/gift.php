@@ -9,11 +9,10 @@
 
 <div class="container mx-auto pt-[160px] ">
 <div>
-<h4 id="wellness" class="mb-4 text-3xl font-semibold px-6">
+<h4 class="mb-4 text-3xl font-semibold px-6">
   Gift Cards
 </h4>
 <div class="gap-12 my-14 grid grid-cols-fluid-15 px-6">
-<!-- grid grid-cols-1 gap-12 md:grid-cols-2 lg:grid-cols-3 -->
 
     <!-- Card 1 -->
     <div class="block border-8 border-lightGray rounded-xl overflow-hidden">

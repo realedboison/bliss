@@ -135,12 +135,21 @@
 
 <!-- PROFILE STARTS -->
     <div id="profile-wrapper-sm" class="w-50 h-54 bg-darkest rounded-xl absolute top-[137px] right-[10px] outline outline-[1px] outline-secondary p-7 hidden z-50">
+        <?php
+            $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
+            $select_profile->execute([$admin_id]);
+
+            if ($select_profile->rowCount() > 0) {
+                $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC); 
+            }
+        ?>
       <div class="flex flex-col items-center justify-center gap-4 ">
-        <img src="../img/profile-picture.jpg" alt="" class="rounded-full size-24">
-        <div class="w-full font-semibold leading-6 text-center text-white">Kweku Ahinful</div>
+        <img src="../img/<?= $fetch_profile['profile']; ?>" alt="profile img" class="rounded-full size-24">
+        <!-- <img src="../image/" class="logo-img"> -->
+        <div class="capitalize w-full font-semibold leading-6 text-center text-white"><?= $fetch_profile['name']; ?></div>
           <div class="flex gap-5">
-            <div class="btn-sm">Profile</div>
-            <div class="btn-sm">Logout</div>
+            <a href="../pages/profile.php" class="btn-sm">Profile</a>
+            <a href="../pages/main.php" class="btn-sm">Logout</a>
           </div>
       </div>
     </div>
@@ -153,8 +162,8 @@
         <a href="#" class="w-full font-semibold text-center text-white underline focus:text-darkGray hover:text-midGray">Products</a>
        
         <div class="flex gap-5 pt-4">
-          <a href="../../pages/login" class="btn-sm">Login</a>
-          <a href="../../pages/register" class="btn-sm">Register</a>
+          <a href="../../admin/login.php" class="btn-sm">Login</a>
+          <a href="../../admin/register.php" class="btn-sm">Register</a>
         </div>
        
       </div>
