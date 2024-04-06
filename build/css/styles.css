@@ -961,6 +961,10 @@ video {
   height: 58px;
 }
 
+.h-36{
+  height: 9rem;
+}
+
 .h-52{
   height: 13rem;
 }

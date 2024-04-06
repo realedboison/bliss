@@ -1,12 +1,13 @@
 <?php
-session_start();
 
 include '../components/connection.php';
 
-$admin_id = $_SESSION['admin_id'];
+session_start();
 
-if (!isset($admin_id)) {
-  header('location:login.php');
+$user_id = $_SESSION['user_id'];
+
+if(!isset($user_id)){
+   header('location:login.php');
 }
 
 ?>
@@ -26,51 +27,40 @@ if (!isset($admin_id)) {
 
 <div class="pt-[160px]">
   <div class="container p-3 mx-auto xl:p-2 mb-14">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 ">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
         <?php
             $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
-            $select_profile->execute([$admin_id]);
+            $select_profile->execute([$user_id]);
+            $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC); 
 
-            if ($select_profile->rowCount() > 0) {
-                $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC); 
-            }
-        ?>
+            
+        ?>    
         <div class="md:col-span-1 p-4 md:border-r-2 md:border-r-lightGray">
           <div class="flex flex-col items-center justify-start gap-y-10">
+         
 
-            <!-- <img src="/uploaded_image/<?= $fetch_profile['profile']; ?>" class="w-36 rounded-full"> -->
-                    
-            <!-- <p class="capitalize"><?= $fetch_profile['name']; ?></p> -->
-                
-            <?php if (!empty($fetch_profile)) : ?>
-                        <!-- Profile Image -->
-                        <img src="/uploaded_image/<?= $fetch_profile['profile']; ?>" class="w-36 rounded-full">
-
-                        <!-- Profile Name -->
-                        <p class="capitalize"><?= $fetch_profile['name']; ?></p>
-            <?php else : ?>
-                        <!-- Default Profile Image -->
-                        <img src="/path/to/default/image.jpg" class="w-36 rounded-full">
-                        <!-- Placeholder Name -->
-                        <p class="capitalize">Guest User</p>
-            <?php endif; ?>
-
-
+              <img src="../uploaded_image/<?php echo empty($fetch_profile['profile']) ? '../uploaded_image/avatar.png' : $fetch_profile['profile'] ?>" alt="profile image" class="w-36 h-36 rounded-full" >
+              
+              <p class="capitalize font-bold text-xl">
+                <?= $fetch_profile['name']; ?>
+              </p>
+    
+            
             <div class="font-semibold flex flex-col items-center justify-center underline gap-y-3">
+
+
               <ul>
                 <li><a href="?page=dashboard">Dashboard</a></li>
                 <li><a href="?page=orders">Orders</a></li>
                 <li><a href="?page=account">Account Details</a></li>
-                <li><a href="../pages/main.php">Logout</a></li>
+                <li><a href="../pages/logout.php">Logout</a></li>
               </ul>
             </div>
           </div>
       </div>
        
-
-  
       <div class="md:col-span-2 p-6">
-      <div class="profile-details">
+        <div class="profile-details">
         <?php
           $currentPage = isset($_GET['page']) ? $_GET['page'] : 'dashboard';
           switch ($currentPage) {
@@ -135,12 +125,12 @@ if (!isset($admin_id)) {
                   <input name="confirm_password" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="password">
                   <div class="text-crimson text-center text-sm pt-1">error msg</div>
                 </div>  
-                <button class="btn-light" type="submit" value="Submit">Save Changes</button>
+                <button class="btn-light" type="submit" value="Submit">
+                  Save Changes
+                </button>
                 </form>
                 </div>
 
-                  <button class="btn-light" type="submit" value="Submit">Save Changes
-                  </button>
                 </form>
                 </div>';
               break;
@@ -148,6 +138,8 @@ if (!isset($admin_id)) {
           ?>
         </div>
         </div>
+  
+
       </div>
     </div>
   </div>

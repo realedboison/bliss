@@ -135,23 +135,21 @@
 
 <!-- PROFILE STARTS -->
     <div id="profile-wrapper-sm" class="w-50 h-54 bg-darkest rounded-xl absolute top-[137px] right-[10px] outline outline-[1px] outline-secondary p-7 hidden z-50">
+      <!-- bg-darkest -->
         <?php
-            $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
-            $select_profile->execute([$admin_id]);
-
-            if ($select_profile->rowCount() > 0) {
-                $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC); 
-            }
-        ?>
-      <div class="flex flex-col items-center justify-center gap-4 ">
-        <img src="../img/<?= $fetch_profile['profile']; ?>" alt="profile img" class="rounded-full size-24">
-        <!-- <img src="../image/" class="logo-img"> -->
+          $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
+          $select_profile->execute([$user_id]);
+          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);  
+        ?>   
+        <div class="flex flex-col items-center justify-center gap-4 z-50">
+        <img src="../uploaded_image/<?php echo empty($fetch_profile['profile']) ? '../uploaded_image/avatar.png' : $fetch_profile['profile'] ?>" alt="profile image" class="w-36 h-36 rounded-full" >
+      
         <div class="capitalize w-full font-semibold leading-6 text-center text-white"><?= $fetch_profile['name']; ?></div>
           <div class="flex gap-5">
             <a href="../pages/profile.php" class="btn-sm">Profile</a>
             <a href="../pages/main.php" class="btn-sm">Logout</a>
           </div>
-      </div>
+        </div>
     </div>
 <!-- PROFILE END -->
 
