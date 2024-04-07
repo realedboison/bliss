@@ -10,6 +10,63 @@ if(!isset($user_id)){
    header('location:login.php');
 }
 
+if(isset($_POST['update'])){
+
+  $name = $_POST['name'];
+  $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+
+  $email = $_POST['email'];
+  $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
+
+  $update_profile = $conn->prepare("UPDATE `admin` SET name = ?, email = ? WHERE id = ?");
+  $update_profile->execute([$name, $email, $user_id]);
+
+  $old_image = $_POST['old_image'];
+  $image = $_FILES['image']['name'];
+  $image_tmp_name = $_FILES['image']['tmp_name'];
+  $image_size = $_FILES['image']['size'];
+  $image_folder = '../uploaded_image/'.$image;
+
+  if(!empty($image)){
+
+      if($image_size > 2000000){
+        $warning_msg[] = 'image size is too large';
+      } else {
+        $update_image = $conn->prepare("UPDATE `admin` SET profile = ? WHERE id = ?");
+        $update_image->execute([$image, $user_id]);
+
+        if($update_image) {
+          move_uploaded_file($image_tmp_name, $image_folder);
+          unlink('../uploaded_image/'.$old_image);
+          $success_msg[] = 'image is updated!';
+        }
+      }
+  }
+
+  $old_pass = $_POST['old_pass'];
+
+  $previous_pass = sha1($_POST['previous_pass']);
+  $previous_pass = htmlspecialchars($previous_pass, ENT_QUOTES, 'UTF-8');
+
+  $new_pass = sha1($_POST['new_pass']);
+  $new_pass = htmlspecialchars($new_pass, ENT_QUOTES, 'UTF-8');
+
+  $confirm_pass = sha1($_POST['confirm_pass']);
+  $confirm_pass = htmlspecialchars($confirm_pass, ENT_QUOTES, 'UTF-8');
+
+
+  if(!empty($previous_pass) || !empty($new_pass) || !empty($confirm_pass)){
+    if($previous_pass != $old_pass){
+      $warning_msg[] = 'old password not matched';
+    }elseif($new_pass != $confirm_pass){
+      $warning_msg[] = 'confirm passwords not matched';
+    }else {
+      $update_password = $conn->prepare("UPDATE `admin` SET password = ? WHERE id = ?");
+      $update_password->execute([$confirm_pass, $user_id]);
+      $success_msg[] = 'password has been updated!';
+    }
+  }
+}
 ?>
 
 
@@ -32,19 +89,16 @@ if(!isset($user_id)){
             $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
             $select_profile->execute([$user_id]);
             $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC); 
-
-            
         ?>    
+
         <div class="md:col-span-1 p-4 md:border-r-2 md:border-r-lightGray">
           <div class="flex flex-col items-center justify-start gap-y-10">
          
-
               <img src="../uploaded_image/<?php echo empty($fetch_profile['profile']) ? '../uploaded_image/avatar.png' : $fetch_profile['profile'] ?>" alt="profile image" class="w-36 h-36 rounded-full" >
               
               <p class="capitalize font-bold text-xl">
                 <?= $fetch_profile['name']; ?>
               </p>
-    
             
             <div class="font-semibold flex flex-col items-center justify-center underline gap-y-3">
 
@@ -57,7 +111,7 @@ if(!isset($user_id)){
               </ul>
             </div>
           </div>
-      </div>
+        </div>
        
       <div class="md:col-span-2 p-6">
         <div class="profile-details">
@@ -78,63 +132,84 @@ if(!isset($user_id)){
               break;
 
             case 'account': 
-              echo '<div class="">
-                <form action="">
+              $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
+              $select_profile->execute([$user_id]);
+              $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+              // ?>    
+            <div class="">
+              <form method="post" enctype="multipart/form-data">
                 <div class="mx-auto lg:w-[70%] w-11/12">
                 
                 <div class="mb-6">
-                  <label for="" class="pb-4"><span class="text-darkestGray">First name</span> <sup class="text-crimson text-lg ">*</sup></label>
-                  <input name="first_name" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="text">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
+                  <label  class="pb-4"><span class="text-darkestGray">Name</span> <sup class="text-crimson text-lg ">*</sup></label>
+                  <input name="name" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="text" value="<?= $fetch_profile['name']; ?>">
                 </div>  
 
                 <div class="mb-6">
-                  <label for="" class="pb-4"><span class="text-darkestGray">Last name</span> <sup class="text-crimson text-lg ">*</sup></label>
-                  <input name="last_name" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="text">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
-                </div>  
-
-                <div class="mb-6">
-                  <label for="" class="pb-4"><span class="text-darkestGray">Display name</span> <sup class="text-crimson text-lg ">*</sup></label>
-                  <input name="display_name" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="text">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
-                </div>  
-
-                <div class="mb-6">
-                  <label for="" class="pb-4"> <span class="text-darkestGray">Email</span> <sup class="text-crimson text-lg ">*</sup></label>
-                  <input name="email" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="text">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
+                  <label class="pb-4"> <span class="text-darkestGray">Email</span> <sup class="text-crimson text-lg ">*</sup></label>
+                  <input name="email" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="email" value="<?= $fetch_profile['email']; ?>">
                 </div>  
 
                 <div class="text-midGray pt-4 mb-5 italic text-sm border-b-2 border-b-lightGray">Change Password</div>
-
+                
                 <div class="mb-6">
-                  <label for=""><span class="text-darkestGray">Current Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
-                  <input name="current_password" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="password">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
+                  <input type="hidden" name="old_pass" value="<?= $fetch_profile['password']; ?>">
+
+                  <div class="mb-6">
+                  <label><span class="text-darkestGray">Previous Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
+                  <input name="previous_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Enter old password" type="password">
+                  </div>
+
+                  <div class="mb-6">
+                  <label><span class="text-darkestGray">New Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
+                  <input name="new_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Enter new password" type="password">
+                  </div>
+
+                  <div class="mb-6">
+                  <label><span class="text-darkestGray">Confirm Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
+                  <input name="confirm_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Confirm new password" type="password">
+                  </div>
                 </div>
+ 
+                <!-- <div class="mb-6">
+                  <label for=""><span class="text-darkestGray">Previous Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
+                  <input name="previous_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Enter old password" type="password">
+                </div> -->
 
-                <div class="mb-6">
+                <!-- <div class="mb-6">
                   <label for=""><span class="text-darkestGray">New Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
-                  <input name="new_password" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="password">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
-                </div>  
+                  <input name="new_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Enter new password" type="password">
+                 
+                </div>   -->
+
+                <!-- <div class="mb-6">
+                  <label for=""><span class="text-darkestGray">Confirm Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
+                  <input name="confirm_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Confirm new password" type="password">
+                 
+                </div> -->
 
                 <div class="mb-6">
-                  <label for=""><span class="text-darkestGray">Confirm Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
-                  <input name="confirm_password" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="password">
-                  <div class="text-crimson text-center text-sm pt-1">error msg</div>
+                  <label for="" class="pb-4"> <span class="text-darkestGray">Select New Profile Image</span> <sup class="text-crimson text-lg ">*</sup></label>
+                  
+                  <input name="old_image" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="hidden" value="<?= $fetch_profile['profile']; ?>">
+
+                
+                  <div class="mb-6">
+                  <input name="image" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" type="file" accept="image/*">
+                  </div>
+                  
                 </div>  
-                <button class="btn-light" type="submit" value="Submit">
+                
+                <button class="btn-light" type="submit" value="update profile" name="update">
                   Save Changes
                 </button>
                 </form>
                 </div>
-
-                </form>
-                </div>';
+              </form>
+                </div>
+          <?php     
               break;
-              }
+            }
           ?>
         </div>
         </div>

@@ -9,7 +9,7 @@
     $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
   
     $pass = sha1($_POST['password']);
-    $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');
+    // $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
 
     $select_admin = $conn->prepare("SELECT * FROM `admin` WHERE email = ? AND password = ?");
     $select_admin->execute([$email, $pass]);

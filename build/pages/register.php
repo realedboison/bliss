@@ -8,16 +8,19 @@
 
     $name = $_POST['name'];
     $name = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
+
   
     $email = $_POST['email'];
     $email = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 
     $pass = sha1($_POST['password']);
     $pass = htmlspecialchars($pass, ENT_QUOTES, 'UTF-8');
+        // $pass = password_hash($_POST['pass'], PASSWORD_DEFAULT);
    
     $cpass = sha1($_POST['cpassword']);
     $cpass = htmlspecialchars($cpass, ENT_QUOTES, 'UTF-8');
-    
+        // $cpass = password_hash($_POST['cpass'], PASSWORD_DEFAULT);
+
     $image = $_FILES['image']['name'];
     $image = htmlspecialchars($image, ENT_QUOTES, 'UTF-8');
 
