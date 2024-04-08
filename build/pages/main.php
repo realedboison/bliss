@@ -1,14 +1,21 @@
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../css/styles.css">
-  <title>Homepage</title>
-</head>
+<?php 
+include '../components/connection.php';
+?>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../css/styles.css">
+    <title>Homepage</title>
+  </head>
+
 <body>
 <?php include '../includes/header.php' ?>
 <!-- CARDS -->
+<!-- <main> -->
 <div class="container grid gap-6 mx-auto grid-cols-fluid-15 my-14">
+<!-- my-14 -->
   <div class="p-6 bg-pinkWashed rounded-xl">
     <div class="pb-1">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="71" height="71">
@@ -84,21 +91,45 @@
 <!-- TWO CARDS END -->
 
 <!-- THREE CARD SIDE -->
-<div class="container grid gap-6 mx-auto grid-cols-fluid-25 my-14">
+<div id="counters"  class="container grid gap-6 mx-auto grid-cols-fluid-25 my-14">
   <div class="p-6 bg-pinkWashed rounded-xl">
-    <h4 class="text-4xl font-semibold mb-[10px]">6,377</h4>
+    <h4 id="counter" class="text-4xl font-semibold mb-[10px]" data-target="6,377">0</h4>
     <p class="text-xl text-secondary">Smoothies Served Today</p>
   </div>
   <div class="p-6 bg-pinkWashed rounded-xl">
-    <h4 class="text-4xl font-semibold mb-[10px]">261,446</h4>
+    <h4 id="counter" class="text-4xl font-semibold mb-[10px]" data-target="261,446">0</h4>
     <p class="text-xl text-secondary">Smoothies Served Per Month</p>
   </div>
   <div class="p-6 bg-pinkWashed rounded-xl">
-    <h4 class="text-4xl font-semibold mb-[10px]">3,314,168</h4>
+    <h4 id="counter" class="text-4xl font-semibold mb-[10px]" data-target="3,314,168">0</h4>
     <p class="text-xl text-secondary">Smoothies Served Per Year</p>
   </div>
 </div>
 <!-- THREE CARD SIDE END -->
-
+<!-- </main> -->
 <?php include '../includes/footer.php' ?>
 </body>
+<!-- </html> -->
+
+
+<script>
+  const counters = document.querySelectorAll('#counter');
+  const speed = 5000;
+
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = parseInt(counter.getAttribute("data-target").replace(/,/g, ''));
+      const count = +counter.innerText;
+      const increase = target / speed;
+
+      if (count < target) {
+        counter.innerText = Math.ceil(count + increase); 
+        setTimeout(updateCount, 1);
+      } else {
+        counter.innerText = target.toLocaleString(); 
+      }
+    };
+    updateCount();
+  });
+
+</script>

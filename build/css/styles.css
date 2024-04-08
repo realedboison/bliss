@@ -1037,14 +1037,6 @@ video {
   width: 100%;
 }
 
-.w-52{
-  width: 13rem;
-}
-
-.w-2\/6{
-  width: 33.333333%;
-}
-
 .max-w-sm{
   max-width: 24rem;
 }
@@ -1470,8 +1462,16 @@ video {
   padding-top: 160px;
 }
 
+.pt-\[170px\]{
+  padding-top: 170px;
+}
+
 .pt-\[200px\]{
   padding-top: 200px;
+}
+
+.pt-\[250px\]{
+  padding-top: 250px;
 }
 
 .text-center{

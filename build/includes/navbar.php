@@ -1,10 +1,30 @@
 <?php
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start(); 
+}
 
-$user_id = $_SESSION['user_id'];
+if (isset($_SESSION['user_id'])) {
+
+    $user_id = $_SESSION['user_id'];
+
+    $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
+    $select_profile->execute([$user_id]);
+    $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);
+} else {
+    $fetch_profile = null;
+}
+
+if (isset($user_id)) {
+    $select_profile->execute([$user_id]);
+} else {
+    error_log('Undefined variable $user_id in navbar.php on line 170');
+}
 
 ?>
+
+
+
 
 <head>
   <meta charset="UTF-8">
@@ -144,11 +164,6 @@ $user_id = $_SESSION['user_id'];
 <!-- PROFILE STARTS -->
     <div id="profile-wrapper-sm" class="w-54 h-54 bg-darkest rounded-xl absolute top-[137px] right-[10px] outline outline-[1px] outline-secondary p-7 hidden z-50">
       <!-- bg-darkest -->
-        <?php
-          $select_profile = $conn->prepare("SELECT * FROM `admin` WHERE id = ?");
-          $select_profile->execute([$user_id]);
-          $fetch_profile = $select_profile->fetch(PDO::FETCH_ASSOC);  
-        ?>   
         <div class="flex flex-col items-center justify-center gap-4 z-50">
         <img src="../uploaded_image/<?php echo empty($fetch_profile['profile']) ? '../uploaded_image/avatar.png' : $fetch_profile['profile'] ?>" alt="profile image" class="w-36 h-36 rounded-full" >
       
@@ -160,7 +175,7 @@ $user_id = $_SESSION['user_id'];
 
           <div class="flex gap-5">
             <a href="../pages/profile.php" class="btn-sm">Profile</a>
-            <a href="../pages/main.php" class="btn-sm">Logout</a>
+            <a href="../pages/logout.php" class="btn-sm">Logout</a>
           </div>
         </div>
     </div>
@@ -169,12 +184,12 @@ $user_id = $_SESSION['user_id'];
 <!-- HAMBURGER MENU START -->
       <div id="menu" class="w-50 h-54 bg-darkest rounded-xl absolute xl:top-[137px] xl:right-[10px] top-[103px] right-[5px] outline outline-[1px] outline-secondary p-7 hidden z-50">
       <div class="flex flex-col items-center justify-center gap-4 ">
-        <a href="#" class="w-full font-semibold text-center text-white underline focus:text-darkGray hover:text-midGray">Home</a>
-        <a href="#" class="w-full font-semibold text-center text-white underline focus:text-darkGray hover:text-midGray">Products</a>
+        <a href="../pages/main.php" class="w-full font-semibold text-center text-white underline focus:text-darkGray hover:text-midGray">Home</a>
+        <a href="../pages/products.php" class="w-full font-semibold text-center text-white underline focus:text-darkGray hover:text-midGray">Products</a>
        
         <div class="flex gap-5 pt-4">
-          <a href="../../admin/login.php" class="btn-sm">Login</a>
-          <a href="../../admin/register.php" class="btn-sm">Register</a>
+          <a href="../pages/login.php" class="btn-sm">Login</a>
+          <a href="../pages/register.php" class="btn-sm">Register</a>
         </div>
        
       </div>

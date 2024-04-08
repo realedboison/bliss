@@ -1,3 +1,8 @@
+<?php
+  include '../components/connection.php';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +16,7 @@
 <?php include '../includes/navbar.php' ?>
 
 <div class="container mx-auto  pt-[200px] pb-[70px]">
+<!-- <div class="container mx-auto pt-[170px] pb-[70px]"> -->
 
 <div>
 <h4 id="wellness" class="mb-4 text-3xl font-semibold text-greenCard">

@@ -61,7 +61,7 @@
           <div class="text-crimson text-center text-sm pt-1"></div>
         </div>  
 
-        <button class="btn-light" type="submit" name="login">Submit</button>
+        <button class="btn-light" type="submit" name="login">Login</button>
         <div class="pt-12 text-center pb-[60px]">
           <div class="">Don't have an account ? <a href="../pages/register.php"><span class="text-crimson font-semibold"> Register</span></a> </div>
         </div>

@@ -170,23 +170,6 @@ if(isset($_POST['update'])){
                   <input name="confirm_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Confirm new password" type="password">
                   </div>
                 </div>
- 
-                <!-- <div class="mb-6">
-                  <label for=""><span class="text-darkestGray">Previous Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
-                  <input name="previous_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Enter old password" type="password">
-                </div> -->
-
-                <!-- <div class="mb-6">
-                  <label for=""><span class="text-darkestGray">New Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
-                  <input name="new_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Enter new password" type="password">
-                 
-                </div>   -->
-
-                <!-- <div class="mb-6">
-                  <label for=""><span class="text-darkestGray">Confirm Password</span> <sup class="text-crimson text-lg mb-4">*</sup></label>
-                  <input name="confirm_pass" class="w-full ring-2 ring-midGray rounded-full focus:outline-none focus:ring-2 focus:ring-primary py-3 px-6" placeholder="Confirm new password" type="password">
-                 
-                </div> -->
 
                 <div class="mb-6">
                   <label for="" class="pb-4"> <span class="text-darkestGray">Select New Profile Image</span> <sup class="text-crimson text-lg ">*</sup></label>
